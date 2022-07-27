@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2015-12-18T07:09:40Z</date>
-    <groups>
-        <group>
+    <version>6.2</version>
+    <date>2022-07-27T05:55:38Z</date>
+    <template_groups>
+        <template_group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
             <name>Templates</name>
-        </group>
-    </groups>
+        </template_group>
+    </template_groups>
     <templates>
         <template>
+            <uuid>4c5afb29ab9349869cb667cfcedbd6e8</uuid>
             <template>Shop2YOU LSI</template>
             <name>Shop2YOU LSI</name>
             <groups>
@@ -16,372 +18,219 @@
                     <name>Templates</name>
                 </group>
             </groups>
-            <applications>
-                <application>
-                    <name>LSI</name>
-                </application>
-            </applications>
             <items>
                 <item>
+                    <uuid>7d1d069bbc1149fc8fc7d0056a1cba05</uuid>
                     <name>Battery Replacement Required</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
+                    <type>TRAP</type>
                     <key>lsi.BatteryReplacementRequired</key>
                     <delay>0</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>4</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
+                    <history>7d</history>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>572227f51c88451b96a0c3e8b4b6ec33</uuid>
+                            <expression>find(/Shop2YOU LSI/lsi.BatteryReplacementRequired,,&quot;like&quot;,&quot;Yes&quot;)=1</expression>
+                            <name>Battery Replacement Required</name>
+                            <priority>WARNING</priority>
+                        </trigger>
+                    </triggers>
                 </item>
                 <item>
+                    <uuid>22a00318b7cd4bd4b5f54e35f52b51f0</uuid>
+                    <name>Battery Cycle Count</name>
+                    <type>TRAP</type>
+                    <key>lsi.CycleCount</key>
+                    <delay>0</delay>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>52669c8b820342d1b325c0f423168aa4</uuid>
+                            <expression>last(/Shop2YOU LSI/lsi.CycleCount)&gt;200</expression>
+                            <name>BBU Cycle Count</name>
+                            <priority>INFO</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>3f32e87fb2a74a5bac1a7a3635a84de2</uuid>
                     <name>Hotspare Drive Count</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
+                    <type>TRAP</type>
                     <key>lsi.HotspareDriveCount</key>
                     <delay>0</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>d2dd841431dd4076ba384a990e9c4eed</uuid>
+                            <expression>last(/Shop2YOU LSI/lsi.HotspareDriveCount)=0</expression>
+                            <name>Hotspare Drive Count</name>
+                            <priority>WARNING</priority>
+                        </trigger>
+                    </triggers>
                 </item>
                 <item>
-                    <name>Online Drive Count</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>lsi.OnlineDriveCount</key>
-                    <delay>0</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Raid Drive Has Errors</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>lsi.RaidDriveHasErrors</key>
-                    <delay>0</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
+                    <uuid>810cb043653242a28ffb7dc958b2db0d</uuid>
                     <name>RAID Mode Optimal</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
+                    <type>TRAP</type>
                     <key>lsi.isOptimal</key>
                     <delay>0</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>daf58857d2a145869ca1e912770a5684</uuid>
+                            <expression>nodata(/Shop2YOU LSI/lsi.isOptimal,5400s)=1</expression>
+                            <name>No LSI heartbeats within last 1.5 hour</name>
+                            <priority>WARNING</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>e9a4f6270ef545c8b0b0edb66c01b479</uuid>
+                            <expression>last(/Shop2YOU LSI/lsi.isOptimal)=0</expression>
+                            <name>RAID Mode DEGRADED</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
                 </item>
                 <item>
-                    <name>RAID Mode WriteBack</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>lsi.WriteBack</key>
+                    <uuid>3e1c0d124335467d8bffdf3dffc08333</uuid>
+                    <name>Online Drive Count</name>
+                    <type>TRAP</type>
+                    <key>lsi.OnlineDriveCount</key>
                     <delay>0</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>9ab101edb8fd4c4083320063c85bde2e</uuid>
+                            <expression>last(/Shop2YOU LSI/lsi.OnlineDriveCount)&lt;2</expression>
+                            <name>Online Drive Count</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
                 </item>
                 <item>
+                    <uuid>a9ece24d3a9d4a008f5ab374f9d89782</uuid>
+                    <name>Predictive Failure Count</name>
+                    <type>TRAP</type>
+                    <key>lsi.PredictiveFailureCount</key>
+                    <delay>0</delay>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>5464478c4db54ceaa75e89a7a71dfb25</uuid>
+                            <expression>last(/Shop2YOU LSI/lsi.PredictiveFailureCount)&gt;0</expression>
+                            <name>Predictive Failure Count</name>
+                            <priority>INFO</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>c3bc3041996848f9870cef786154fd17</uuid>
+                    <name>Raid Drive Has Errors</name>
+                    <type>TRAP</type>
+                    <key>lsi.RaidDriveHasErrors</key>
+                    <delay>0</delay>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>ac9a7e07db8745a3836f0cc4e8fb1c10</uuid>
+                            <expression>last(/Shop2YOU LSI/lsi.RaidDriveHasErrors)=1</expression>
+                            <name>Some Raid Drives has Errors</name>
+                            <priority>INFO</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>c019c898492e4657b66b6c1f99ad8eb4</uuid>
                     <name>Remaining Capacity Low</name>
-                    <type>2</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
+                    <type>TRAP</type>
                     <key>lsi.RemainingCapacityLow</key>
                     <delay>0</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>4</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>LSI</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
+                    <history>7d</history>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>e759e13c9dd24dd2b7fcbfa77f25cdc3</uuid>
+                            <expression>find(/Shop2YOU LSI/lsi.RemainingCapacityLow,,&quot;like&quot;,&quot;Yes&quot;)=1</expression>
+                            <name>BBU Remaining Capacity Low</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>8f3888eb80d243a593b9bcc512588a60</uuid>
+                    <name>RAID Mode WriteBack</name>
+                    <type>TRAP</type>
+                    <key>lsi.WriteBack</key>
+                    <delay>0</delay>
+                    <history>7d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>LSI</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>f04f6b1c222843acb95eb7ea5cb0f81b</uuid>
+                            <expression>last(/Shop2YOU LSI/lsi.WriteBack)=0</expression>
+                            <name>Mode changed from WriteBack to WriteThrough</name>
+                            <priority>INFO</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
                 </item>
             </items>
-            <discovery_rules/>
-            <macros/>
-            <templates/>
-            <screens/>
         </template>
     </templates>
-    <triggers>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.BatteryReplacementRequired.str(Yes)}=1</expression>
-            <name>Battery Replacement Required</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.RemainingCapacityLow.str(Yes)}=1</expression>
-            <name>BBU Remaining Capacity Low</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.HotspareDriveCount.last(0)}=0</expression>
-            <name>Hotspare Drive Count</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.WriteBack.last(0)}=0</expression>
-            <name>Mode changed from WriteBack to WriteThrough</name>
-            <url/>
-            <status>0</status>
-            <priority>1</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.isOptimal.nodata(5400)}=1</expression>
-            <name>No LSI heartbeats within last 1.5 hour</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.OnlineDriveCount.last(0)}&lt;2</expression>
-            <name>Online Drive Count</name>
-            <url/>
-            <status>0</status>
-            <priority>4</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.isOptimal.last(0)}=0</expression>
-            <name>RAID Mode Disgrade</name>
-            <url/>
-            <status>0</status>
-            <priority>4</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{Shop2YOU LSI:lsi.RaidDriveHasErrors.last(0)}=1</expression>
-            <name>Some Raid Drives has Errors</name>
-            <url/>
-            <status>0</status>
-            <priority>1</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-    </triggers>
 </zabbix_export>
