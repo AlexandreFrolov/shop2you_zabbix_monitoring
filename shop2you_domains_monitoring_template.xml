@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2022-07-29T13:16:07Z</date>
+    <groups>
+        <group>
+            <name>Shop2YOU Domains</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Shop2YOU Domains Monitor</template>
+            <name>Shop2YOU Domains Monitor</name>
+            <groups>
+                <group>
+                    <name>Shop2YOU Domains</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Domain Monitoring</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>a_found</name>
+                    <type>TRAP</type>
+                    <key>a_found</key>
+                    <delay>0</delay>
+                    <history>30d</history>
+                    <trends>30d</trends>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>days_before_domain_expire</name>
+                    <type>TRAP</type>
+                    <key>days_before_domain_expire</key>
+                    <delay>0</delay>
+                    <history>30d</history>
+                    <trends>30d</trends>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>days_before_ssl_expire</name>
+                    <type>TRAP</type>
+                    <key>days_before_ssl_expire</key>
+                    <delay>0</delay>
+                    <history>30d</history>
+                    <trends>30d</trends>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>dns_a</name>
+                    <type>TRAP</type>
+                    <key>dns_a</key>
+                    <delay>0</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>dns_mx</name>
+                    <type>TRAP</type>
+                    <key>dns_mx</key>
+                    <delay>0</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>domain_has_ssl</name>
+                    <type>TRAP</type>
+                    <key>domain_has_ssl</key>
+                    <delay>0</delay>
+                    <history>30d</history>
+                    <trends>30d</trends>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>domain_ssl_matches</name>
+                    <type>TRAP</type>
+                    <key>domain_ssl_matches</key>
+                    <delay>0</delay>
+                    <history>30d</history>
+                    <trends>30d</trends>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}=0</expression>
+                            <name>Domain SSL does not match domain name</name>
+                            <priority>INFO</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>mx_found</name>
+                    <type>TRAP</type>
+                    <key>mx_found</key>
+                    <delay>0</delay>
+                    <history>30d</history>
+                    <trends>30d</trends>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>whois_ok</name>
+                    <type>TRAP</type>
+                    <key>whois_ok</key>
+                    <delay>0</delay>
+                    <history>30d</history>
+                    <trends>30d</trends>
+                    <applications>
+                        <application>
+                            <name>Domain Monitoring</name>
+                        </application>
+                    </applications>
+                </item>
+            </items>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>{Shop2YOU Domains Monitor:dns_a.change()}=1 and {Shop2YOU Domains Monitor:a_found.last()}=1</expression>
+            <name>DNA A record was changed</name>
+            <priority>INFO</priority>
+        </trigger>
+        <trigger>
+            <expression>{Shop2YOU Domains Monitor:dns_mx.change()}=1 and {Shop2YOU Domains Monitor:mx_found.last()}=1</expression>
+            <name>DNS MX was changed</name>
+            <priority>INFO</priority>
+        </trigger>
+        <trigger>
+            <expression>{Shop2YOU Domains Monitor:days_before_domain_expire.last()}&lt;30 and {Shop2YOU Domains Monitor:whois_ok.last()}=1</expression>
+            <name>Domain registration expires in 30 days</name>
+            <priority>AVERAGE</priority>
+        </trigger>
+        <trigger>
+            <expression>{Shop2YOU Domains Monitor:days_before_ssl_expire.last()}&lt;7 and {Shop2YOU Domains Monitor:domain_has_ssl.last()}=1 and {Shop2YOU Domains Monitor:domain_ssl_matches.last()}=1</expression>
+            <name>SSL expired in 7 days</name>
+            <priority>AVERAGE</priority>
+        </trigger>
+    </triggers>
+</zabbix_export>
