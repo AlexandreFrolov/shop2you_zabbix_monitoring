@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.2</version>
+    <date>2022-08-10T07:43:17Z</date>
+    <template_groups>
+        <template_group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </template_group>
+    </template_groups>
+    <templates>
+        <template>
+            <uuid>3ed91c5b070a4baebcb4308dd4597e43</uuid>
+            <template>Shop2YOU Quota Check</template>
+            <name>Shop2YOU Quota Check</name>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>87397d4b321e447eafa15830834f104d</uuid>
+                    <name>Disk Quota Max Used</name>
+                    <type>TRAP</type>
+                    <key>quota.key</key>
+                    <delay>0</delay>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Disk Quota App</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>ad92a5e8765841a5adca6412476d2d2f</uuid>
+                            <expression>last(/Shop2YOU Quota Check/quota.key)&gt;90</expression>
+                            <name>Disk Quota is over</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>b0418b4bd71b4dae841a6cd59ad9528a</uuid>
+                            <expression>nodata(/Shop2YOU Quota Check/quota.key,5400s)=1</expression>
+                            <name>No Quota Trapper heartbeats within last 1.5 hour</name>
+                            <priority>WARNING</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <uuid>e7b61e964bc5429ba46f09fc4a3f1655</uuid>
+            <name>Quota use</name>
+            <graph_items>
+                <graph_item>
+                    <color>007700</color>
+                    <item>
+                        <host>Shop2YOU Quota Check</host>
+                        <key>quota.key</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
