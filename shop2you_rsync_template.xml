@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.2</version>
+    <date>2022-09-14T12:33:38Z</date>
+    <template_groups>
+        <template_group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </template_group>
+    </template_groups>
+    <templates>
+        <template>
+            <uuid>e22ea1cb46a4467b9cbd3c99940c784c</uuid>
+            <template>Shop2YOU Rsync Monoitor</template>
+            <name>Shop2YOU Rsync Monoitor</name>
+            <description>Мониторинг узла keepalived</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>c230f49aea6f48f2a9d0e7692b94a2c4</uuid>
+                    <name>shopusr2 Sync Error</name>
+                    <type>TRAP</type>
+                    <key>shopusr2_sync.Error</key>
+                    <delay>0</delay>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Rsync</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>2cab9bfd6f16482cbe36f51fb60b35bc</uuid>
+                            <expression>nodata(/Shop2YOU Rsync Monoitor/shopusr2_sync.Error,1800s)=1</expression>
+                            <name>No Rsync heartbeats within last 30 min</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>85ee1efb32294b26b32d46b964f543d3</uuid>
+                            <expression>last(/Shop2YOU Rsync Monoitor/shopusr2_sync.Error)=1</expression>
+                            <name>shopusr2 Sync Error</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>2a00ad6610b14bac974832c9deada443</uuid>
+                    <name>shopusr2 Sync SyncDuration</name>
+                    <type>TRAP</type>
+                    <key>shopusr2_sync.SyncDuration</key>
+                    <delay>0</delay>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Rsync</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>c2d0e55702b347dc889c695c50e25cb8</uuid>
+                    <name>shopusr2 Sync Warning</name>
+                    <type>TRAP</type>
+                    <key>shopusr2_sync.Warning</key>
+                    <delay>0</delay>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Rsync</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>66779148c53e491e879f7c6d0c05a535</uuid>
+                            <expression>last(/Shop2YOU Rsync Monoitor/shopusr2_sync.Warning)=1</expression>
+                            <name>shopusr2 Sync Warning</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+        </template>
+    </templates>
+</zabbix_export>
