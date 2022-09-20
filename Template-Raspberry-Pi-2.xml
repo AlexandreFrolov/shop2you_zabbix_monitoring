@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.2</version>
+    <date>2022-09-20T14:28:40Z</date>
+    <template_groups>
+        <template_group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </template_group>
+        <template_group>
+            <uuid>13e16d3ad2ad4021864cb146f2c2799a</uuid>
+            <name>Templates/RaspberryPi</name>
+        </template_group>
+    </template_groups>
+    <templates>
+        <template>
+            <uuid>9ada0e177db34f56ba1174aecbd11d29</uuid>
+            <template>Template Raspberry Pi</template>
+            <name>Template Raspberry Pi</name>
+            <description>Template for a Raspberry Pi to monitor vcgencmd parameters among others.</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+                <group>
+                    <name>Templates/RaspberryPi</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>09d4ce7eba9f44f285f204be74c7864b</uuid>
+                    <name>Board revision</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[boardrevision]</key>
+                    <delay>120s</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Die board revision of the Raspberry Pi.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>dfdf1fa776aa48638574533f10c68e03</uuid>
+                    <name>Board serial number</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[boardserialnumber]</key>
+                    <delay>120s</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>The unique serial number of the Raspberry Pi.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>081b9342faa54dc9a113658cdde41c3d</uuid>
+                    <name>Board version</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[boardversion]</key>
+                    <delay>120s</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>The hardware version of the Raspberry Pi.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>d742143efce44bfc86e5c5cbbb3547b6</uuid>
+                    <name>Core clock speed</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[coreclock]</key>
+                    <delay>30s</delay>
+                    <units>Hz</units>
+                    <description>Core clock speed in Hz.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>1b9f04893b0546d383adbc5c3d8575ed</uuid>
+                    <name>CPU clock speed</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[cpuclock]</key>
+                    <delay>30s</delay>
+                    <units>Hz</units>
+                    <description>CPU clock speed in Hz.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>10116cdd2b37466d8e5124d01928c5d6</uuid>
+                    <name>RAM CPU</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[cpumem]</key>
+                    <delay>30s</delay>
+                    <units>Byte</units>
+                    <description>Amount of CPU memory.</description>
+                    <preprocessing>
+                        <step>
+                            <type>MULTIPLIER</type>
+                            <parameters>
+                                <parameter>1000000</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>f455af6a41c04c76b94c6692ff0ce362</uuid>
+                    <name>CPU temperature</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[cputemperature]</key>
+                    <delay>30s</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>C</units>
+                    <description>The CPU temperature in Degree-Celsius</description>
+                    <preprocessing>
+                        <step>
+                            <type>MULTIPLIER</type>
+                            <parameters>
+                                <parameter>0.001</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>df266fd8f4aa40808d0e9950deaad93e</uuid>
+                    <name>CPU Voltage</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[cpuvoltage]</key>
+                    <delay>30s</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>V</units>
+                    <description>Voltage of the CPU.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>b7a4b5e2a251449c9a905351e1c960be</uuid>
+                    <name>Firmware version</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[firmwareversion]</key>
+                    <delay>120s</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>The firmware version of the Raspberry Pi.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>9f6ce48c9c0d4bb1a43a2ebe6053e5f2</uuid>
+                    <name>RAM GPU</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[gpumem]</key>
+                    <delay>30s</delay>
+                    <units>Byte</units>
+                    <description>Amount of memory for the GPU.</description>
+                    <preprocessing>
+                        <step>
+                            <type>MULTIPLIER</type>
+                            <parameters>
+                                <parameter>1000000</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>4f3aeb3cd7254ff08f9e664153b852b1</uuid>
+                    <name>Moisture State</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[moisture]</key>
+                    <delay>30s</delay>
+                    <description>The moisture state from YL38.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>b382967e9ae244a7801f69121291ddf5</uuid>
+                            <expression>last(/Template Raspberry Pi/raspberrypi.sh[moisture])=0</expression>
+                            <name>Moisture State</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>ae1a58ae9e4a450f9dc07cc36b1a1ced</uuid>
+                    <name>SD-Card - Free disk space</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[sdcardfree]</key>
+                    <delay>120s</delay>
+                    <units>Byte</units>
+                    <description>Free disk space on SD-Card in Byte.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>07a8352048564e9abd59548f8c9440e4</uuid>
+                    <name>SD-Card - Total size</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[sdcardtotalsize]</key>
+                    <delay>120s</delay>
+                    <units>Byte</units>
+                    <description>The total size of the SD-Card.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>dd1cfab447d24fc5a064dbc27beb8757</uuid>
+                    <name>SD-Card - Used disk space in percent</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[sdcardusedpercent]</key>
+                    <delay>120s</delay>
+                    <units>%</units>
+                    <description>Used space in percent of the SD-Card.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>72701ace60c94383bc7ef6113f4f1904</uuid>
+                    <name>SD-Card - Used disk space</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[sdcardused]</key>
+                    <delay>120s</delay>
+                    <units>Byte</units>
+                    <description>Used disk space of the SD-Card.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>190384b5d87d44b49757d139fb111c78</uuid>
+                    <name>SD-RAM C voltage</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[sdramcvoltage]</key>
+                    <delay>30s</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>V</units>
+                    <description>SD-RAM C Voltage in Volt.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>bcec7b2162ff4b8b8ddc9b7aff0cdfe6</uuid>
+                    <name>SD-RAM i voltage</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[sdramivoltage]</key>
+                    <delay>30s</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>V</units>
+                    <description>SD-RAM i Voltage in Volt.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>4dc4227e236f475dab88d1c0a1d42fa4</uuid>
+                    <name>SD-RAM P voltage</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[sdrampvoltage]</key>
+                    <delay>30s</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>V</units>
+                    <description>SD-RAM P Voltage in Volt.</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>83c95854d9a746c4bfb6f38f9ddea10a</uuid>
+                    <name>Core temperature</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[temperature]</key>
+                    <delay>30s</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>C</units>
+                    <description>The board / CPU temperature in Degree-Celsius</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>716788d458a94d5f9c33279ed4602fb7</uuid>
+                            <expression>last(/Template Raspberry Pi/raspberrypi.sh[temperature])&gt;79</expression>
+                            <name>Thermal throttle</name>
+                            <priority>WARNING</priority>
+                            <description>Raspberry Pi will throttle at ca. 80 °C.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>5f1e5a7a47ee4761b6cdd6c5db5a3af6</uuid>
+                    <name>Throttle State</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>raspberrypi.sh[throttlestate]</key>
+                    <delay>30s</delay>
+                    <description>The throttle state of the Raspberry Pi.
+For more information:
+https://www.raspberrypi.org/forums/viewtopic.php?f=63&amp;t=147781&amp;start=50#p972790</description>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Raspberry Pi</value>
+                        </tag>
+                    </tags>
+                </item>
+            </items>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <uuid>08595bd391d34566a9acd182fa03d9c3</uuid>
+            <name>Frequencies</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[coreclock]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[cpuclock]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>bf3530f8d89249e69f2dfc35312cefdf</uuid>
+            <name>RAM</name>
+            <type>STACKED</type>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[cpumem]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[gpumem]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>6b34e408144c4fc39a6849be1e1d707b</uuid>
+            <name>SD-Card usage</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[sdcardfree]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>2774A4</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[sdcardtotalsize]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[sdcardused]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>e79c76d80d404d528900f8941e6fad04</uuid>
+            <name>Voltages</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[cpuvoltage]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[sdramcvoltage]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <color>2774A4</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[sdramivoltage]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <color>A54F10</color>
+                    <item>
+                        <host>Template Raspberry Pi</host>
+                        <key>raspberrypi.sh[sdrampvoltage]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
