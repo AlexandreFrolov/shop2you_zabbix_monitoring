@@ -45,9 +45,9 @@ sub sendp1sms
 }
 open(my $fh, '>>', '/var/log/zabbix/zbx_p1sms.ru.log');
 my $datestring = localtime();
+my $problem  = $ARGV[1];
 my $hostname = $ARGV[2];
-my $problem = $ARGV[1];
-my $message = $hostname;
+my $message  = $hostname;
 if($problem =~ /Resolved/)
 {
  print $fh $datestring." RESOLVED: ".$problem."\n";
