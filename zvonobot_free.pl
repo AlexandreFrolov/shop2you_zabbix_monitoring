@@ -75,7 +75,7 @@ sub phone_call_zvonobot
   my $req = HTTP::Request->new(POST => $api_url);
   $req->content_type('application/json');
   $req->content($json_request);
-  my $ua = LWP::UserAgent->new; # You might want some options here
+  my $ua = LWP::UserAgent->new;
   my $response = $ua->request($req);
 
   if ($response->is_success)
