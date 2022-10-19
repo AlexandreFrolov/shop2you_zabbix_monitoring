@@ -43,6 +43,11 @@ sub sendp1sms
     return($err_msg, $json_request);
   }
 }
+
+# =============================================================
+# START
+# =============================================================
+
 open(my $fh, '>>', '/var/log/zabbix/zbx_p1sms.ru.log');
 my $datestring = localtime();
 my $problem  = $ARGV[1];
