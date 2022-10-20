@@ -41,26 +41,6 @@ sub not_recently_called
   return $calling_permition;
 }
 
-# =============================================================
-# send_mail_messages
-# =============================================================
-sub send_mail_messages
-{
-  my ($email_to, $email_from, $email_from_name, $email_subject, $message) = @_;
-  use ITMATRIX::Email;
-  my $email = 'ITMATRIX::Email'->new();
-  $email->set_email_params( to         => $email_to,
-                            from_name  => $email_from_name,
-                            from_email => $email_from,
-                            subject    => $email_subject,
-                            body       => $message,
-                            );
-  $email->set_content_type('text');
-  $email->set_local_send();
-  use ITMATRIX::Mailer;
-  'ITMATRIX::Mailer'->new()->send($email);
-}
-
 # =================================================================
 # phone_call_zvonobot
 # =================================================================
@@ -122,7 +102,6 @@ else
 
   if(not_recently_called(20*60))
   {
-    send_mail_messages($email_to, $email_from, $email_from_name, $email_subject, $message);
     phone_call_zvonobot($api_url, $api_key, $phone_number, $outgoingPhone, $message);
   }
 }
